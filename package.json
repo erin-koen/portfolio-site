@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
@@ -8,5 +12,13 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
-  }
+  },
+  "name": "eek-portfolio-back-end",
+  "version": "1.0.0",
+  "description": "Simple back end for CV and projects",
+  "main": "server.js",
+  "repository": "https://github.com/erin-koen/portfolio-site.git",
+  "author": "Erin Koen <erin.koen@gmail.com>",
+  "license": "MIT",
+  "private": false
 }
