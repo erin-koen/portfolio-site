@@ -2,25 +2,31 @@ const db = require('../data/dbconfig');
 
 module.exports = {
 	add,
-    find,
-    get     
+	findById,
+	get,
+	remove
 };
 
 // add a user
 async function add(user) {
-	try {
-		const [id] = await db('user')
-			.insert(user);
-		return find(id);
-	} catch (error) {
-        console.log(error)
-    }
+	const [id] = await db('user')
+		.insert(user)
+		.returning('id');
+	return findById(id);
 }
 
-function find(id) {
-	return db('user').where({ id });
+function findById(id) {
+	return db('user')
+		.where({ id })
+		.first();
 }
 
 function get() {
-    return db('user')
+	return db('user');
+}
+
+function remove(id) {
+	return db('user')
+		.where({ id })
+		.del();
 }

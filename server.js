@@ -4,16 +4,18 @@ const Sentry = require("@sentry/node")
 
 //Routers
 const userController = require('./controllers/user.js')
+const jobsController = require('./controllers/jobs.js')
 
 
-const middleware = require('./middleware/config');
-const errorMiddleware = require('./middleware/errorReporting');
+const middleware = require('./middleware/config.js');
+const errorMiddleware = require('./middleware/errorReporting.js');
 
 const server = express();
 middleware(server)
 
 //Routes
 server.use('/api/user', userController)
+server.use('/api/jobs', jobsController)
 
 
 

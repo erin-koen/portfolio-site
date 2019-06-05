@@ -7,13 +7,13 @@ exports.up = function(knex) {
 			.unsigned()
 			.notNullable()
 			.references('id')
-			.inTable('users')
+			.inTable('user')
 			.onDelete('CASCADE')
 			.onUpdate('CASCADE');
 		tbl.string('company_name', 128).notNullable();
 		tbl.string('location', 128).notNullable();
 		tbl.date('start_date').notNullable();
-		tbl.date('end-date');
+		tbl.date('end_date');
 		tbl.string('position').notNullable();
 	});
 };

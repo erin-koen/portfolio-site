@@ -24,7 +24,18 @@ module.exports = {
       directory: './data/seeds'
     }
   },
-
+  testing: {
+    client: 'pg',
+    connection: {
+      filename: "./data/test.db3"
+    },
+    migrations: {
+      directory: './data/migrations'
+    },
+    seeds: {
+      directory: './data/seeds'
+    }
+  },
    production: {
     client: 'postgresql',
     connection: dbConnection,
