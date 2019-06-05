@@ -16,8 +16,9 @@ router.get('/', async (req, res) => {
 //likely need to destructure job descriptions off of this and make the call to that table within this endpoint.
 router.post('/', async (req, res) => {
     try {
+        console.log('controller', req.body)
         const newJob = await Jobs.add(req.body)
-        res.status(201).json(jobs)
+        res.status(201).json(newJob)
     } catch (error) {
         res.status(500).json({message: 'there was an error with the server.'})
         throw new Error(error)
