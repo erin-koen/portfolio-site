@@ -9,7 +9,6 @@ module.exports = {
 
 // add a user
 async function add(job) {
-	console.log("model", job)
 	const [id] = await db('jobs')
 		.insert(job)
 		.returning('id');
