@@ -74,7 +74,9 @@ router.delete('/description/del/:id', async (req, res) => {
 		}
 	} catch (error) {
 		const message = 'There was an error with the server.';
-		res.status(500).json({ message });
+        res.status(500).json({ message });
+        throw new Error(error);
+
 	}
 });
 

@@ -54,9 +54,11 @@ router.post('/activities', async (req, res) => {
 });
 //delete an activity
 router.delete('/activities/:id', async (req, res) => {
-	const { id } = req.params;
+    const { id } = req.params;
+    console.log(id)
 	try {
-		const [activitity] = await SchoolActivities.findById(id);
+        const activity = await SchoolActivities.findById(id);
+        console.log('activity', activity)
 		const count = await SchoolActivities.remove(id);
 		if (count === 0) {
 			const message =
@@ -70,8 +72,11 @@ router.delete('/activities/:id', async (req, res) => {
 		}
 	} catch (error) {
         const message = 'There was an error with the server.';
-        res.status(500).json({message})
-	}
+        res.status(500).json({message});
+        throw new Error(error);
+
+    }
+    
 });
 
 module.exports = router;

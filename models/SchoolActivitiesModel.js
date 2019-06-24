@@ -16,10 +16,11 @@ async function add(activity) {
 	return findBySchoolId(schoolId);
 }
 
-function findById(id) {
-	return db('school_activities')
+async function findById(id) {
+	const activity = await db('school_activities')
 		.where({ id })
 		.first();
+	return activity
 }
 
 async function findBySchoolId(schoolId) {
