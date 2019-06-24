@@ -10,10 +10,10 @@ module.exports = {
 
 // add a user
 async function add(activity) {
-	const [id] = await db('school_activities')
+	const [schoolId] = await db('school_activities')
 		.insert(activity)
-		.returning('id');
-	return findById(id);
+		.returning('schoolId');
+	return findBySchoolId(schoolId);
 }
 
 function findById(id) {

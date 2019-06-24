@@ -46,7 +46,6 @@ router.post('/description', async (req, res) => {
 	console.log('request body', req.body);
 	try {
 		const newBP = await JobDesc.add(req.body);
-
 		res.status(201).json(newBP);
 	} catch (error) {
 		res.status(500).json({
@@ -61,26 +60,22 @@ router.delete('/description/del/:id', async (req, res) => {
 	const { id } = req.params;
 	try {
 		// get the bp object in order to access jobId
-        const [bp] = await JobDesc.findById(id);
-        console.log('highest up', bp.jobId)
+		const [bp] = await JobDesc.findById(id);
 		// call remove function, returns 1 or 0
-        const count = await JobDesc.remove(id);
-        console.log(count)
+		const count = await JobDesc.remove(id);
+
 		if (count === 0) {
 			const message = 'This bullet point does not exist.';
 			res.status(404).json({ message });
 		} else {
-            // Delete successful, return array of updated bulletpoints to update state
+			// Delete successful, return array of updated bulletpoints to update state
 			const bulletPoints = await JobDesc.findByJobId(bp.jobId);
-            console.log('after', bulletPoints)
-            res.status(200).json(bulletPoints);
-        }
-        
+			res.status(200).json(bulletPoints);
+		}
 	} catch (error) {
 		const message = 'There was an error with the server.';
 		res.status(500).json({ message });
 	}
 });
-
 
 module.exports = router;
