@@ -57,20 +57,20 @@ router.post('/tech', async (req, res) => {
 
 router.delete('/tech/:id', async (req, res) => {
 	const { id } = req.params;
-
+	console.log(id)
 	try {
 		const tech = await ProjectTech.findById(id);
-		console.log('activity', activity);
+		console.log('tech', tech);
 		const count = await ProjectTech.remove(id);
 		if (count === 0) {
 			const message =
 				'This activity does not exist. How did you get here?';
 			res.status(404).json({ message });
 		} else {
-			const activities = await ProjectTech.findBySchoolId(
-				activity.userId
+			const stack = await ProjectTech.findByProjectId(
+				tech.project_id
 			);
-			res.status(200).json(activities);
+			res.status(200).json(stack);
 		}
 	} catch (error) {
 		const message = 'There was an error with the server.';
