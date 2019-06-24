@@ -3,6 +3,7 @@ const db = require('../data/dbconfig');
 module.exports = {
 	add,
 	findById,
+	findByProjectId,
 	get,
 	remove
 };
@@ -15,10 +16,16 @@ async function add(tech) {
 	return findById(id);
 }
 
-function findById(id) {
-	return db('project_tech')
+async function findById(id) {
+	const tech = await db('project_tech')
 		.where({ id })
 		.first();
+	return tech
+}
+
+async function findByProjectId(project_id) {
+	const stack = await db('project_tech').where({ project_id })
+	return stack
 }
 
 function get() {

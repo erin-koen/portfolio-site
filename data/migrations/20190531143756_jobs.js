@@ -11,7 +11,8 @@ exports.up = function(knex) {
 			.onDelete('CASCADE')
 			.onUpdate('CASCADE');
 		tbl.string('company_name', 128).notNullable();
-		tbl.string('location', 128).notNullable();
+		tbl.string('city', 128).notNullable();
+		tbl.string('state', 128).notNullable();
 		tbl.date('start_date').notNullable();
 		tbl.date('end_date');
 		tbl.string('position').notNullable();

@@ -9,7 +9,7 @@ exports.up = function(knex) {
       tbl.string('last_name', 128);
       tbl.string('medium', 128);
       tbl.string('title', 128);
-      tbl.string('github')
+      tbl.string('github', 128)
 
   })
 };

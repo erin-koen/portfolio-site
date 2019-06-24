@@ -3,6 +3,7 @@ const db = require('../data/dbconfig');
 module.exports = {
 	add,
 	findById,
+	findByUserId,
 	get,
 	remove
 };
@@ -18,6 +19,12 @@ async function add(project) {
 function findById(id) {
 	return db('projects')
 		.where({ id })
+		.first();
+}
+
+function findByUserId(userId) {
+	return db('projects')
+		.where({ userId })
 		.first();
 }
 
