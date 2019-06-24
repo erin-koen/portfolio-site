@@ -5,7 +5,7 @@ const SchoolActivities = require('../models/SchoolActivitiesModel.js');
 router.get('/', async (req, res) => {
 	try {
 		const schools = await Schools.get();
-		res.status(201).json(schools);
+		res.status(200).json(schools);
 	} catch (error) {
 		res.status(500).json({
 			message: 'there was an error with the server.'
