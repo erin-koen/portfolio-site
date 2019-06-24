@@ -3,25 +3,22 @@ const db = require('../data/dbconfig');
 module.exports = {
 	add,
 	findByJobId,
+	findById,
 	get,
 	remove
 };
 
 // add a user
 async function add(description) {
-	console.log('model', description)
-	const [id] = await db('jobdesc')
+	const [jobId] = await db('jobdesc')
 		.insert(description)
-		.returning('id');
-	console.log('id', id)
-	return findById(id);
+		.returning('jobId');
+	return findByJobId(jobId);
 }
 
 async function findById(id) {
-	console.log('in findById', id)
-	const bp = await db('jobdesc').where({ id })
-	console.log('after await', bp)
-	return bp
+	const bp = await db('jobdesc').where({ id });
+	return bp;
 }
 
 function findByJobId(jobId) {

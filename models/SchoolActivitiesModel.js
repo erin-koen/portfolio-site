@@ -3,6 +3,7 @@ const db = require('../data/dbconfig');
 module.exports = {
 	add,
 	findById,
+	findBySchoolId,
 	get,
 	remove
 };
@@ -19,6 +20,11 @@ function findById(id) {
 	return db('school_activities')
 		.where({ id })
 		.first();
+}
+
+async function findBySchoolId(schoolId) {
+	const activities = await db('school_activities').where({schoolId})
+	return activities
 }
 
 function get() {
