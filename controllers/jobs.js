@@ -20,7 +20,8 @@ router.post('/', async (req, res) => {
 	try {
 		console.log('body', req.body);
 		const newJob = await Jobs.add(req.body);
-		res.status(201).json(newJob);
+		const jobs = await Jobs.get()
+		res.status(201).json(jobs);
 	} catch (error) {
 		res.status(500).json({
 			message: 'there was an error with the server.'
