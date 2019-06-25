@@ -17,7 +17,8 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
 	try {
 		const newSchool = await Schools.add(req.body);
-		res.status(201).json(newSchool);
+		const schools = await Schools.get()
+		res.status(201).json(schools);
 	} catch (error) {
 		res.status(500).json({
 			message: 'there was an error with the server.'
