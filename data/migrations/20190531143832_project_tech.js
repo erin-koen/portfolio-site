@@ -10,7 +10,7 @@ exports.up = function(knex) {
 			.onDelete('CASCADE')
 			.onUpdate('CASCADE');
 		tbl.string('tech_name', 128);
-		tbl.string('tech_use', 256);
+		tbl.text('tech_use');
 		tbl.string('logo', 128)
 	});
 };
