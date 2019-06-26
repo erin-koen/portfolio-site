@@ -16,6 +16,7 @@ exports.up = function(knex) {
 		tbl.date('start_date').notNullable();
 		tbl.date('end_date');
 		tbl.string('position').notNullable();
+		tbl.string('logo', 128)
 	});
 };
 
