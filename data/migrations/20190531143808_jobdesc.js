@@ -7,7 +7,7 @@ exports.up = function(knex) {
 			.inTable('jobs')
 			.onDelete('CASCADE')
             .onUpdate('CASCADE');
-        tbl.string('bulletPoint', 128)
+        tbl.text('bulletPoint')
 	});
 };
 
