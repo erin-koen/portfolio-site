@@ -44,5 +44,6 @@ function priceQuery() {
 		.catch(error => console.log(error));
 }
 
-
-module.exports(priceQuery)
+module.exports = {
+	priceQuery
+};
