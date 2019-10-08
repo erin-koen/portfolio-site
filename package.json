@@ -5,14 +5,18 @@
   },
   "dependencies": {
     "@sentry/node": "^5.4.0",
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "knex": "^0.17.1",
+    "node-cron": "^2.0.3",
     "pg": "^7.11.0",
-    "sentry": "^0.1.2"
+    "query-string": "^6.8.3",
+    "sentry": "^0.1.2",
+    "twilio": "^3.35.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

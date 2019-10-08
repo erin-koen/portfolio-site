@@ -1,8 +1,7 @@
 exports.up = function(knex) {
 	return knex.schema.createTable('project_tech', tbl => {
 		tbl.increments();
-		tbl
-			.integer('project_id')
+		tbl.integer('project_id')
 			.unsigned()
 			.notNullable()
 			.references('id')
@@ -11,7 +10,7 @@ exports.up = function(knex) {
 			.onUpdate('CASCADE');
 		tbl.string('tech_name', 128);
 		tbl.text('tech_use');
-		tbl.string('logo', 128)
+		tbl.string('logo', 128);
 	});
 };
 
