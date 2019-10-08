@@ -8,6 +8,7 @@ const localPg = {
   database: process.env.DB_DATABASE
 }
 
+
 const pg = require('pg');
 
 const dbConnection = process.env.DATABASE_URL || localPg;
