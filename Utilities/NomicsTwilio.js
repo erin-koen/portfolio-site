@@ -8,6 +8,7 @@ const requestObject = {
 	interval: '1h',
 	convert: 'USD'
 };
+console.log(requestObject)
 
 const accountSID = 'AC257d49eb289eaf925fe3a314c175978a';
 const token = 'dab5c899f932e7266acc0ef7e8e7c4cd';
