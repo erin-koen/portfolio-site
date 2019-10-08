@@ -8,9 +8,12 @@ const requestObject = {
 	interval: '1h',
 	convert: 'USD'
 };
-console.log(requestObject)
+console.log(requestObject);
 
-const twilioClient = new twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+const twilioClient = new twilio(
+	process.env.TWILIO_SID,
+	process.env.TWILIO_TOKEN
+);
 
 const endpoint = 'https://api.nomics.com/v1/currencies/ticker?';
 
@@ -30,12 +33,6 @@ function priceQuery() {
 			} else if (change < -1.5) {
 				twilioClient.messages.create({
 					body: `Bitcoin is on the move. The price is down ${change}% in the last hour. The current price is $${result.data[0].price}`,
-					to: `+13157967653`,
-					from: `+13158645501`
-				});
-			} else {
-				twilioClient.messages.create({
-					body: `Bitcoin is unch. The current price is $${result.data[0].price}.`,
 					to: `+13157967653`,
 					from: `+13158645501`
 				});
