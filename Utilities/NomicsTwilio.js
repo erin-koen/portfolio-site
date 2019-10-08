@@ -10,9 +10,6 @@ const requestObject = {
 };
 console.log(requestObject)
 
-const accountSID = 'AC257d49eb289eaf925fe3a314c175978a';
-const token = 'dab5c899f932e7266acc0ef7e8e7c4cd';
-
 const twilioClient = new twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
 const endpoint = 'https://api.nomics.com/v1/currencies/ticker?';
