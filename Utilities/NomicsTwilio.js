@@ -23,7 +23,7 @@ function priceQuery() {
 	axios
 		.get(endpoint + queryString)
 		.then(result => {
-			const change = result.data[0]['1h'].price_change_pct;
+			const change = result.data[0]['1h'].price_change_pct * 100;
 			if (change > 1.5) {
 				twilioClient.messages.create({
 					body: `Bitcoin is on the move. The price is up ${change}% in the last hour. The current price is $${result.data[0].price}`,
