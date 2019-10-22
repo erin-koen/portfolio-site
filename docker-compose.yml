@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    db:
+        image: postgres:11.5-alpine
+        env_file: .env.db
+    web:
+        build: ./app
+        image: eek637/paxos_take_home_api
+        ports: 
+            - "5000:5000"
+        depends_on: 
+            - db
+        env_file: .env

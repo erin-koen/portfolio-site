@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "migrate": "knex migrate:latest"
   },
   "dependencies": {
     "@sentry/node": "^5.4.0",
